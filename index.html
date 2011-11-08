@@ -7,6 +7,7 @@
   <style type="text/css">
     body { padding: 20px; }
     .points { color: #339BB9; }
+    .radiation { color: #46A546; }
   </style>
   <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
   <script src="https://raw.github.com/exogen/jquery-tally/master/jquery.tally.js"></script>
@@ -18,22 +19,38 @@
         <h1>jQuery Tally <small>My numbers are animated and my JavaScript smells of rich mahogany.</small></h1>
       </div>
       <div class="row">
-        <div class="span16">
+        <div class="span6">
           <h2>Points: <span class="points">900</span></h2>
-          <button class="btn primary">I need more!</button>
-          <button class="btn danger">Reset</button>
+          <button class="btn primary pts">I need more!</button>
+          <button class="btn danger pts">Reset</button>
+        </div>
+        <div class="span6">
+          <h2>Radiation: <span class="radiation">0.00001</span> Gy</h2>
+          <button class="btn rad">Move Closer</button>
         </div>
       </div>
     </div>
   </div>
   <script>
     jQuery(function($) {
-      $('button.primary').click(function() {
+      $('button.primary.pts').click(function() {
         var points = parseInt(Math.random() * 1000) + 100;
         $('.points').tally('+=' + points, {duration: 3000, queue: false});
       });
-      $('button.danger').click(function() {
+      $('button.danger.pts').click(function() {
         $('.points').stop().tally(0, 1000);
+      });
+
+      $.fx.step.glow = function(fx) {
+          $(fx.elem).css({textShadow: '0 0 ' + parseInt(fx.now) + 'px #46F526'});
+      };
+
+      var glow = 2;
+
+      $('button.rad').click(function() {
+        glow += 3;
+        var rad = ($('.radiation').css('tally') + 0.00037).toFixed(5);
+        $('.radiation').animate({tally: rad, glow: glow}, 4000);
       });
     });
   </script>
