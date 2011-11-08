@@ -33,7 +33,7 @@ and includes locale-specific defaults.
 
 At [BigDoor][], we award points. [Lots of 'em.][info] But we wanted point balances to feel more "active" and
 "tactile" — like coins spilling out of a slot machine. So we created this animation (along with a few other
-tricks).
+spiffy effects).
 
 By the way, [we're hiring][hiring].
 
