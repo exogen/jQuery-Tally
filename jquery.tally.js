@@ -52,7 +52,7 @@
     }
 
     $.fn.tally = function(number, duration, easing, complete) {
-        this.animate({tally: number}, duration, easing, complete);
+        return this.animate({tally: number}, duration, easing, complete);
     };
 
     // Add a fake CSS property to $.cssHooks to allow animation.
