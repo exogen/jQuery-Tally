@@ -28,11 +28,11 @@
   </div>
   <script>
     jQuery(function($) {
-      $('button.primary').on('click', function() {
-        var points = parseInt(Math.random() * 1000) + 1;
-        $('.points').tally('+=' + points, {duration: 2000, queue: false});
+      $('button.primary').click(function() {
+        var points = parseInt(Math.random() * 1000) + 100;
+        $('.points').tally('+=' + points, {duration: 3000, queue: false});
       });
-      $('button.danger').on('click', function() {
+      $('button.danger').click(function() {
         $('.points').stop().tally(0, 1000);
       });
     });
