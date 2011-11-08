@@ -43,7 +43,7 @@ No. However, Tally was created with integers in mind. Support for animating frac
 be improved.
 
 If you want to animate fractional values, I recommend including the [Number Formatter][] plugin alongside
-Tally; Tally will use this when available.
+Tally; this will be used when available.
 
 ## Documentation
 
