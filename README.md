@@ -4,7 +4,7 @@
 
 ### What is it?
 
-A jQuery plugin that animates (and formats) numbers, drawing attention and making your page feel alive.
+A jQuery plugin that animates (and formats) numbers, drawing attention and making your page feel alive. [See?][Demo]
 
 ### Why is it cool?
 
