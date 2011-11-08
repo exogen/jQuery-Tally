@@ -20,7 +20,7 @@ $('.points').tally(75);
 But check this out:
 
 ```javascript
-$('.points').animate({tally: 250, fontSize: '48px', top: '-10px'},
+$('.points').animate({tally: '+=250', fontSize: '48px', top: '-10px'},
                      {duration: 5000, easing: 'swing', queue: false});
 ```
 
