@@ -55,7 +55,7 @@
         return this.animate({tally: number}, duration, easing, complete);
     };
 
-    // Add a fake CSS property to $.cssHooks to allow animation.
+    // Enable reading and writing by adding a property to $.cssHooks.
     $.cssHooks.tally = {
         get: function(elem) {
             var value = $.tally.parseNumber($(elem).text(), $.tally.defaults);
