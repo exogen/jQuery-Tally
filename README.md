@@ -26,8 +26,8 @@ $('.points').animate({tally: '+=250', fontSize: '48px', top: '-10px'},
 
 ### Oh yeah, what else?
 
-Tally will use the [Number Formatter][] plugin if it's available, which offers greater formatting control
-and includes locale-specific defaults.
+Tally plays well with the [Number Formatter][] plugin, which offers greater formatting control and includes
+locale-specific defaults. Just include it alongside Tally and it will be used.
 
 ### Why did you make it?
 
