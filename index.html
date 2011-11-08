@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <div class="span16">
-          <h2>Points: <span class="points">0</span></h2>
+          <h2>Points: <span class="points">900</span></h2>
           <button class="btn primary">I need more!</button>
           <button class="btn danger">Reset</button>
         </div>
@@ -28,14 +28,12 @@
   </div>
   <script>
     jQuery(function($) {
-      var points = 0;
       $('button.primary').on('click', function() {
-        points += parseInt(Math.random() * 1000) + 1;
-        $('.points').tally(points, {duration: 2000, queue: false});
+        var points = parseInt(Math.random() * 1000) + 1;
+        $('.points').tally('+=' + points, {duration: 2000, queue: false});
       });
       $('button.danger').on('click', function() {
-        points = 0;
-        $('.points').stop().tally(points, 1000);
+        $('.points').stop().tally(0, 1000);
       });
     });
   </script>
