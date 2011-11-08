@@ -1,5 +1,5 @@
 /**
- * jQuery Tally v0.1.0
+ * jQuery Tally v0.1.2
  *
  * Copyright 2011, Brian Beck
  * http://github.com/exogen/jquery-tally
@@ -58,22 +58,30 @@
     // Enable reading and writing by adding a property to $.cssHooks.
     $.cssHooks.tally = {
         get: function(elem) {
-            var value = $.tally.parseNumber($(elem).text(), $.tally.defaults);
+            var text = $(elem).text(),
+                value = $.tally.parseNumber(text, $.tally.defaults);
             return isNaN(value) ? 0 : +value;
         },
         set: function(elem, value) {
-            $(elem).text($.tally.formatNumber(value, $.tally.defaults));
+            var text = $.tally.formatNumber(value, $.tally.defaults);
+            $(elem).text(text);
         }
     };
 
     // Enable animation by adding to $.fx.step.
     $.fx.step.tally = function(fx) {
-        var now = fx.now;
-        // Only show integers between fx.start and fx.end.
-        if (fx.start < fx.end)
-            now = Math.min(Math.ceil(now), fx.end);
-        else if (fx.start > fx.end)
-            now = Math.max(Math.floor(now), fx.end);
+        // Match the number of decimal places of fx.end.
+        var places = (('' + fx.end).split('.', 2)[1] || '').length,
+            now = fx.now.toFixed(places);
+
+        // Snap to fx.start and fx.end (in case rounding changes order).
+        if ((fx.now > fx.start && now < fx.start) ||
+            (fx.now < fx.start && now > fx.start))
+            now = fx.start;
+        else if ((fx.now < fx.end && now > fx.end) ||
+                 (fx.now > fx.end && now < fx.end))
+            now = fx.end;
+
         $.cssHooks.tally.set(fx.elem, now);
     };
 
